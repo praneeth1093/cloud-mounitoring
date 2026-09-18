@@ -1,77 +1,200 @@
-# Cloud Monitoring and Alerting System
+# ☁️ Cloud Monitoring and Alerting System
 
-## Project Overview
+A cloud-based monitoring and alerting system built to monitor an **AWS EC2 instance** using **Prometheus, Node Exporter, Grafana, and Docker**.
 
-This project implements a cloud-based monitoring and alerting system for an AWS EC2 instance. The system collects infrastructure metrics and provides real-time visualization and alerting.
+The project collects infrastructure metrics, visualizes them through Grafana dashboards, and provides alert notifications when configured conditions are reached.
 
-## Technologies Used
+## 🚀 Project Overview
 
-- AWS EC2
-- Docker
-- Prometheus
-- Node Exporter
-- Grafana
-- SMTP Email Alerting
+This project implements a containerized monitoring solution for an AWS EC2 Ubuntu instance.
 
-## Architecture
+The system collects important infrastructure metrics such as:
 
-AWS EC2 Instance
-        |
-        +-- Node Exporter
-        |       |
-        |       +-- System Metrics
-        |
-        +-- Prometheus
-        |       |
-        |       +-- Metrics Collection
-        |
-        +-- Grafana
-                |
-                +-- Dashboards
-                +-- Alert Rules
-                +-- Email Notifications
+* CPU usage
+* Memory usage
+* Disk usage
+* System-level metrics
 
-## Project Components
+These metrics are collected using **Node Exporter and Prometheus**, visualized using **Grafana**, and monitored using Grafana alert rules.
 
-### Node Exporter
+## 🛠️ Technologies Used
 
-Node Exporter collects system-level metrics such as CPU, memory, disk and other infrastructure statistics from the EC2 instance.
+* **AWS EC2** – Cloud server infrastructure
+* **Docker** – Containerization
+* **Prometheus** – Metrics collection and monitoring
+* **Node Exporter** – System metrics collection
+* **Grafana** – Monitoring dashboards and alerting
+* **SMTP** – Email notifications
+* **Ubuntu** – Operating system
 
-### Prometheus
+## 🏗️ Architecture
 
-Prometheus collects metrics from Node Exporter at a configured interval.
+```text
+                    AWS EC2 - Ubuntu
+                           │
+                           ▼
+                    ┌──────────────┐
+                    │ Node Exporter│
+                    └──────┬───────┘
+                           │
+                    System Metrics
+                           │
+                           ▼
+                    ┌──────────────┐
+                    │  Prometheus  │
+                    └──────┬───────┘
+                           │
+                     Metrics Data
+                           │
+                           ▼
+                    ┌──────────────┐
+                    │   Grafana    │
+                    └──────┬───────┘
+                           │
+                    ┌──────┴───────┐
+                    │              │
+                Dashboards     Alert Rules
+                                   │
+                                   ▼
+                             Email Alerts
+```
 
-The project uses a 15-second scrape interval.
+## 🔧 Project Components
 
-### Grafana
+### 1. Node Exporter
 
-Grafana is used to visualize the collected metrics through monitoring dashboards.
+Node Exporter collects system-level metrics from the EC2 instance.
 
+It provides metrics related to:
 
+* CPU
+* Memory
+* Disk
+* Network
+* System performance
 
-Grafana alert rules are configured to monitor infrastructure conditions and generate notifications when defined thresholds are reached.
+### 2. Prometheus
 
+Prometheus collects and stores metrics from Node Exporter.
 
-The monitoring stack is deployed on an AWS EC2 Ubuntu instance using Docker containers.
-
-## Docker Containers
-
-The following containers are used:
-
-- Prometheus
-- Node Exporter
-- Grafana
-
+The project uses a **15-second scrape interval** to periodically collect the metrics.
 
 Prometheus configuration is available in:
 
-`prometheus/prometheus.yml`
+```text
+prometheus/prometheus.yml
+```
 
+### 3. Grafana
 
-Project screenshots demonstrating the deployment, monitoring dashboard, Prometheus targets, and alerting configuration are included in the `screenshots` directory.
+Grafana is used to visualize the metrics collected by Prometheus.
 
+The project includes monitoring dashboards for observing the infrastructure and Grafana alert rules for monitoring configured conditions.
 
-The project provides centralized infrastructure monitoring, visualization, and alert notifications for an AWS EC2 environment.
+### 4. Docker
 
+The monitoring stack runs using Docker containers.
 
-This project demonstrates the implementation of a containerized cloud monitoring solution using AWS EC2, Docker, Prometheus, Node Exporter, and Grafana.
+The project uses containers for:
+
+* Prometheus
+* Node Exporter
+* Grafana
+
+This makes the monitoring components easier to deploy and manage.
+
+### 5. Email Alerting
+
+SMTP email notification is configured for sending alerts when defined monitoring conditions are reached.
+
+## 🔄 How It Works
+
+```text
+EC2 Instance
+     ↓
+Node Exporter
+     ↓
+Prometheus
+     ↓
+Grafana
+     ↓
+Dashboards + Alert Rules
+     ↓
+Email Notification
+```
+
+## 📊 Monitoring Flow
+
+1. An AWS EC2 Ubuntu instance runs the monitoring stack.
+2. Node Exporter collects system metrics.
+3. Prometheus periodically scrapes the metrics.
+4. Prometheus stores the collected metrics.
+5. Grafana connects to Prometheus.
+6. Grafana displays the metrics using dashboards.
+7. Alert rules monitor configured conditions.
+8. Email notifications are generated when alert conditions are reached.
+
+## 📁 Project Structure
+
+```text
+Cloud_Monitoring_Project/
+│
+├── prometheus/
+│   └── prometheus.yml
+│
+├── screenshots/
+│
+├── grafana/
+│
+├── docker-compose.yml
+│
+└── README.md
+```
+
+> The exact project structure may vary depending on the files included in the repository.
+
+## 🎯 Key Features
+
+* ☁️ AWS EC2 infrastructure monitoring
+* 📊 Real-time metric visualization
+* 🖥️ CPU, memory, disk and system monitoring
+* 🔍 Prometheus metric collection
+* 📈 Grafana dashboards
+* 🚨 Grafana alert rules
+* 📧 Email notifications
+* 🐳 Docker-based deployment
+* ⚙️ 15-second Prometheus scrape interval
+
+## 🎓 What I Learned
+
+Through this project, I gained practical experience with:
+
+* AWS EC2
+* Docker and containerized applications
+* Prometheus
+* Node Exporter
+* Grafana
+* Infrastructure monitoring
+* Metrics collection
+* Monitoring dashboards
+* Alert configuration
+* SMTP email notifications
+* Linux/Ubuntu server administration
+
+## 🔮 Future Improvements
+
+Possible improvements include:
+
+* Adding more infrastructure metrics
+* Monitoring multiple EC2 instances
+* Adding centralized logging
+* Implementing automated deployment using CI/CD
+* Adding more advanced Grafana dashboards
+* Integrating additional notification channels
+* Deploying the monitoring stack using infrastructure-as-code tools such as Terraform
+
+## 👨‍💻 Author
+
+**Praneeth Vakamullu**
+
+GitHub: [@praneeth1093](https://github.com/praneeth1093)
