@@ -193,6 +193,41 @@ Possible improvements include:
 * Integrating additional notification channels
 * Deploying the monitoring stack using infrastructure-as-code tools such as Terraform
 
+* ## 📸 Project Screenshots
+
+### AWS EC2 / Project Setup
+
+![AWS EC2 Screenshot](screenshots/Screenshot%202026-08-21%20133243.png)
+
+### Monitoring Setup
+
+![Monitoring Setup](screenshots/Screenshot%202026-08-21%20133253.png)
+
+### Grafana Dashboard
+
+![Grafana Dashboard](screenshots/Screenshot%202026-08-21%20133309.png)
+
+### Prometheus Configuration
+
+![Prometheus Configuration](screenshots/Screenshot%202026-08-21%20133327.png)
+
+### Monitoring Dashboard
+
+![Monitoring Dashboard](screenshots/Screenshot%202026-08-21%20133355.png)
+
+### Docker Containers
+
+![Docker Containers](screenshots/docker-containers.png)
+
+### Email Alert
+
+![Email Alert](screenshots/email-alert.png)
+
+### Prometheus Targets
+
+![Prometheus Targets](screenshots/prometheneus-target.png)
+
+
 ## 👨‍💻 Author
 
 **Praneeth Vakamullu**
